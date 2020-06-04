@@ -1,0 +1,21 @@
+
+<div class = "container">
+  <div class = "race-field position-absolute svg-race">
+    <SvgContainer @class="w-100 h-100" @players={{this.nrOfBikes}} @progress1={{this.riders.[0].progressValue}} @progress2={{this.riders.[1].progressValue}} @progress3={{this.riders.[2].progressValue}} @progress4={{this.riders.[3].progressValue}}/>
+    {{#if this.canStartRace}}
+      {{#if (not this.raceOnGoing)}}
+        <button class="hw-race button start-button rounded-circle position-absolute" {{action "startClick"}} id = "startB">
+          <div class = "start-text position-relative font-weight-bold font-italic">START</div>
+        </button>
+      {{else}}
+        <button class="hw-race button start-button rounded-circle position-absolute" {{action "stopRace"}} id = "startB">
+          <div class = "start-text position-relative font-weight-bold font-italic">STOP</div>
+        </button>
+      {{/if}}
+    {{else}}
+      <button class="hw-race button start-button rounded-circle position-absolute" {{action "startClick"}} id = "startB" disabled>
+        <div class = "start-text position-relative font-weight-bold font-italic"><font color = "gray">START</font></div>
+      </button>
+    {{/if}} 
+  </div>
+</div>

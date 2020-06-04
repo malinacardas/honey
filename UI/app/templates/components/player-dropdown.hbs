@@ -1,0 +1,32 @@
+{{#unless this.isWinner}}
+  <div class="pdropdown d-inline-block mt-10 pdropdown-{{rid}} position-absolute" >
+    <button class="drop-btn player-nabla z-index-2 roboto players-{{nrOfBikes}} text-white" {{action "showList" rid  bubbles=false}}  >
+      <DropdownSvg />
+    </button>
+    <div id = "playerList-{{rid}}" class="pdropdown-content position-absolute bg-transparent {{if areaExpanded "d-block" "d-none"}} ">
+      <div {{action "empty" bubbles=false}} role="button">
+        <Input @value={{searchValue}} @type = "text"  @class = "input-search teko position-relative bg-transparent" @placeholder="search" @id="dropdownSearch-{{rid}}"  /><br>
+      </div>
+      <div class = "player-options position-relative" id="poptions-{{rid}}">
+        {{#each playersListA as |playerA|}}
+        
+          <li class="nobull">
+            <a class = "dr-color teko text-white d-block text-decoration-none" onTouchStart={{action "setPlayer" playerA rid bubbles=false}} {{action "setPlayer" playerA rid bubbles=false}} role="button" >
+              <font color = "#c2c0ba">{{playerA.name}}</font>
+              <div class="tooltiptext position-relative">{{playerA.email}}</div>
+            </a>
+          </li>
+        {{/each}}
+        {{#each playersNA as |playerNA|}}
+          <li class="nobull">
+            <a class = "dr-color teko text-white d-block text-decoration-none" role="button" >
+              <font color = " #66565a">{{playerNA.name}}</font>
+              <div class="tooltiptext position-relative">{{playerNA.email}}</div>
+            </a>
+          </li>
+        {{/each}} 
+
+      </div>
+    </div>
+  </div>
+{{/unless}}

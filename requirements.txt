@@ -1,0 +1,6 @@
+flask
+pyserial
+Flask-SQLAlchemy
+Flask-SocketIO
+requests
+eventlet

@@ -1,0 +1,81 @@
+<div class="container teko mt-145 ml-7">
+  <button {{action "customRace" result this event}} {{action "all"}} class="res-btn bg-transparent text-white" type="submit">ALL</button>
+  <button {{action "women"}} class="res-btn bg-transparent text-white" type="submit">WOMEN</button>
+  <button {{action "men"}} class="res-btn bg-transparent text-white" type="submit">MEN</button>
+  <button {{action "kids"}} class="res-btn bg-transparent text-white" type="submit">KIDS</button>
+  <button {{action "customRace" result this event}} class="res-btn bg-transparent text-white ml-2" type="submit">CUSTOM RACE</button>
+</div>
+
+<div class="table bg-transparent overflow-auto force-overflow size-tbl-div mt-5">
+  {{#if showFirstTable}}
+    <table class="tbl-res text-white">
+      <thead>
+        <tr>
+          <th scope="col" class="sizeOfFont"></th>
+          <th scope="col" class="sizeOfFont">Name</th>
+          <th scope="col" class="sizeOfFont">Age</th>
+          <th scope="col" class="sizeOfFont">Gender</th>
+          <th scope="col" class="sizeOfFont">AvgSpeed</th>
+          <th scope="col" class="sizeOfFont">MaxSpeed</th>
+          {{#if (eq raceTypeSet "m")}}
+            <th scope="col" class="sizeOfFont">Time (s)</th>
+          {{else}}
+            <th scope="col" class="sizeOfFont">Distance (m)</th>
+          {{/if}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each filtered as |result index|}}
+          <tr>
+            <td class="sizeOfFont">{{add index 1}}</td>
+            <td class="sizeOfFont">{{result.name}}</td>
+            <td class="sizeOfFont">{{result.age}}</td>
+            <td class="sizeOfFont">{{result.gender}}</td>
+            <td class="sizeOfFont">{{result.avgSpeed}}km/h</td>
+            <td class="sizeOfFont">{{result.maxSpeed}}km/h</td>
+            {{#if (eq raceTypeSet "m")}}
+              <td scope="col" class="sizeOfFont">{{result.goodTime}}</td>
+            {{else}}
+              <td scope="col" class="sizeOfFont">{{result.playerResult}}</td>
+            {{/if}}
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+  <br> 
+  <table class="tbl-res text-white">
+    <thead>
+      <tr>
+        <th scope="col" class="sizeOfFont"></th>
+        <th scope="col" class="sizeOfFont">Name</th>
+        <th scope="col" class="sizeOfFont">Age</th>
+        <th scope="col" class="sizeOfFont">Gender</th>
+        <th scope="col" class="sizeOfFont">AvgSpeed</th>
+        <th scope="col" class="sizeOfFont">MaxSpeed</th>
+        <th scope="col" class="sizeOfFont">Time (s)</th>
+        <th scope="col" class="sizeOfFont">Distance (m)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each customRace as |result index|}}
+        <tr>
+          <td class="sizeOfFont">{{add index 1}}</td>
+          <td class="sizeOfFont">{{result.name}}</td>
+          <td class="sizeOfFont">{{result.age}}</td>
+          <td class="sizeOfFont">{{result.gender}}</td>
+          <td class="sizeOfFont">{{result.avgSpeed}}km/h</td>
+          <td class="sizeOfFont">{{result.maxSpeed}}km/h</td>
+          {{#if (eq result.raceType "m")}}
+            <td class="sizeOfFont">{{result.goodTime}}</td>
+            <td class="sizeOfFont">{{result.raceValue}}</td>
+          {{else}}
+            <td class="sizeOfFont">{{result.formattedCustomTime}}</td>
+            <td class="sizeOfFont">{{result.playerResult}}</td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{yield}}

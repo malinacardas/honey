@@ -1,0 +1,23 @@
+<Input @type = "number" 
+  class="custom-race-input bg-transparent custom-race-font text-white text-right d-inline float-left {{if isDropdownOpen "input-focus" ""}}"
+  id = "race-value-input"
+  @focus-in={{action "showDropdown"}} 
+  @enter={{action "setOnlyRaceValue"}}
+  @value={{settings.raceValue}} 
+  @min={{minRaceValue}}
+  @max={{maxRaceValue}} />
+
+<p class="custorm-race-input ml-035 custom-race-font text-white text-left float-left {{if isDropdownOpen "d-none" "d-inline"}}">{{this.settings.raceType}}</p>
+<div class = "race-types position-relative z-index-2 float-left {{if isDropdownOpen "d-inline" "d-none"}}"> 
+
+  {{#each raceTypes as |raceType|}} 
+    <li class = "race-types-list" >
+      <a class = "race-type-choice custom-race-font text-white d-block text-center {{if (eq settings.raceType raceType) "choice-selected" "choice-not-selected"}}" 
+      onTouchStart={{action "setRace" raceType}} 
+      {{action "setRace" raceType }} role="button" >
+        {{raceType}}
+      </a>
+    </li>
+  {{/each}}
+  
+</div>

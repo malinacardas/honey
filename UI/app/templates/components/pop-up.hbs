@@ -1,0 +1,49 @@
+<div class="modal d-block position-fixed z-index-1 overflow-auto close {{if showPageErrorOpacity "" ""}}">
+  <div class="modal-content">
+     <div class="col text-white">
+        <div class="py-input-text-first teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isFirstNameValid "border border-white" "border border-danger"}}" @value={{this.firstName}} @placeholder="USERNAME"/>
+        </div>
+        <div class="py-input-text teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isLastNameValid "border border-white" "border border-danger"}}" @value={{this.lastName}} @placeholder="MASTER PASSWORD"/>
+        </div>
+        <div class="py-input-text teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isLastNameValid "border border-white" "border border-danger"}}" @value={{this.lastName}} @placeholder="CONFIRM PASSWORD"/>
+        </div>
+        <div class="py-input-text teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isPhoneValid "border border-white" "border border-danger"}}" @value={{this.phone}} @placeholder="EMAIL"/>
+        </div>
+        <div>
+          <label class="teko text-white registration-label padding-label">Already have an account?</label>
+        </div>
+        <div>
+        <label class="teko text-white registration-label padding-label">LOGIN</label>
+        </div>
+      </div>
+    {{!-- {{#if showClose}}
+      <div>
+        <div class="float-right close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="4vh" height="4vh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </div>
+      </div>
+    {{/if}}
+    <div class="text-center text-white popup-text font-italic {{if registrationPopUp "mb4-mt3" ""}}{{if eventsButton "create-events-popup mb-0" ""}}{{if pageError "popup-text" ""}}">
+      <p class="bison-bold align-middle">{{this.message}}</p>
+    </div>
+    {{#if eventsButton}}
+      <div class="text-center">
+        <button class="p-3 create-events-popup-button" {{action "transitionToEventsIndex"}}>GO TO EVENTS</button>
+      </div>
+    {{/if}}
+    {{#if surePopUp}}
+      <div class="text-center">
+        <button class="button-popup" {{action "closeEvent"}}>YES</button>
+        <button class="button-popup">NO</button>
+      </div>
+    {{/if}} --}}
+  </div>
+</div>
+{{yield}}

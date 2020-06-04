@@ -1,0 +1,79 @@
+<div class = "race-background overflow-hidden">
+  <div class="cursor-default" {{action "startOver"}} {{action "closeAllDropdowns" preventDefault=false bubbles=false}} role="button">
+    
+    
+    <div class = "row" >
+      <HeaderBar @editButton = {{true}} @eventId = {{model.eventId}} @raceOnGoing = {{raceOnGoing}}/>
+      <div class = "justify-content-center offset-4 mt-2">
+        <RaceTimer @riders={{riders}} @seconds = {{raceSeconds}} @millis={{raceMillis}} />
+      </div>
+    </div>
+
+    <div class = "row justify-content-center">
+      <div class = " input-container d-inline-block float-left">
+        <CustomRaceDropdown @settings = {{this.settings}} @event={{model.event}}/>
+      </div>
+    </div>
+
+    <div class = "row ml-0 mr-0 justify-content-start">
+      <PlayerGrid @showWinner={{showWinner}} 
+      @winnerID={{winnerID}} 
+      @nrOfBikes = {{this.settings.noOfBikes}} 
+      @players = {{model.participants}}
+      @raceType = {{this.settings.raceType}}
+      @onSendRider={{action "sendAddedRiders" }}
+      @raceFinished={{raceFinished}} @riders={{riders}}
+      @ridersList={{ridersList}}
+      @showDropdowns={{showDropdowns}} 
+      @onClickDropdown={{ action "clickedDropdown"}}
+      @keepItOpen={{action "keepItOpen"}} />
+    
+      <RaceTrack 
+      @nrOfBikes = {{model.event.nrOfBikes}} 
+      @startOver={{startOver}} @showWinner={{showWinner}} 
+      @canStartRace = {{canStartRace}} 
+      @raceOnGoing = {{raceOnGoing}} 
+      @raceType = {{this.settings.raceType}} 
+      @raceValue = {{this.settings.raceValue}} 
+      @riders={{riders}} 
+      @onStartRace={{action "startRace" }} 
+      @onStopRace={{action "stopRace" }} 
+      @onStartOver={{action "startOver"}}/>
+    </div> 
+    <div class = "row ml-0 mr-0 w-100 fixed-bottom" >
+      <div class="center-max-speed justify-content-center {{if showWinner "opacity-9" ""}}">
+        <MaxSpeed @maxSpeed={{maxSpeed}} @nameMaxSpeed={{nameMaxSpeed}}/>
+      </div>
+      <div class= "logo-race-page w-9 {{if showWinner "opacity-9" ""}}">
+        <img class ="w-100" src={{this.image}} alt="Event Logo">
+      </div>
+    </div>
+    {{#if showWinner}}
+      <div class = "position-absolute ml-0 mr-0 w-100 h-100 fixed-top z-index-2 bg-black">
+        <div class = "div-winner-banner position-absolute winner-text bison-bold text-center font-italic d-block">
+          <spane>WINNER !</spane>
+        </div>
+        <ConfettiRain @maxParticles={{200}} @isEnabled={{true}}/>
+      </div>
+    {{/if}}
+    {{#if isCountDownOn}}
+      <div id = "cd" class = "row ml-0 mr-0 background-countdown h-100 fixed-top">
+        <div class="fixed-top text-center">
+          <span class="count-down gradient-main font-weight-bold font-italic bison-bold">
+            {{countDown}}
+          </span>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>
+{{#if raceOnGoingError}}
+  <div role="button" {{action "setRaceOnGoingErrorToFalse"}}>
+    <PopUp @message = {{this.errorMessageRaceOnGoing}} @pageError = {{true}} @showPageErrorOpacity = {{true}} @showClose = {{true}}/>
+  </div>
+{{/if}}
+{{#if eventClosedError}}
+  <div>
+    <PopUp @message = {{this.errorMessageEventClosed}} @eventsButton = {{true}} @showPageErrorOpacity = {{true}}/>
+  </div>
+{{/if}}

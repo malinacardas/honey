@@ -1,0 +1,37 @@
+stages:
+  - dependencies
+  - lint
+  - test
+  - build
+
+image: danlynn/ember-cli
+
+cache:
+  paths:
+    - node_modules
+    - bower_components
+
+install_dependencies:
+  stage: dependencies
+  script:
+    - npm install -g ember-cli
+    - npm install
+
+lint:
+  stage: lint
+  script:
+    - npm run lint:hbs
+    - npm run lint:js
+
+test:
+  stage: test
+  script:
+    - ember test
+
+buid:
+  stage: build
+  artifacts:
+    paths:
+      - dist/
+  script:
+    - ember build

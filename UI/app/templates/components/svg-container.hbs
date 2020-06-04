@@ -1,0 +1,99 @@
+
+<RaceFlag @race={{true}} class="w-check-race " x="47.55%" y="0.8%" @size={{2}} @xTimes={{4}} @yTimes={{27}} />
+
+<Lane @class ="lane" @r = "32.3%"/>
+
+<Lane @class ="lane" @r = "49.5%"/>
+
+{{#if (not-eq this.players 2)}}
+  {{#if (not-eq this.players 1)}}
+    <Lane @class ="lane" @r = "40.7%"/>
+
+    <Lane @class ="lane" @r = "23.7%"/>
+  {{/if}}
+{{/if}}
+
+{{#if (eq this.players 1)}}
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="{{gradient1}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#B7D55C"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#B7D55C" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <Trail @class="origin-center trail" stroke="url(#grad1)" @position={{82}} @progress={{this.progress1}}></Trail>
+
+  <Player @class="opacity-0-9 origin-center four-race-first-player h-16-5 w-2-4" @progress = {{this.progress1}} @y = "0.9%" />
+
+{{/if}}
+
+{{#if (eq this.players 2)}}
+  <Player @class="opacity-0-9 origin-center two-race-first-player h-16-5 w-2-4" @progress = {{this.progress1}} @y = "0.9%" />
+  <Player @class="opacity-0-9  origin-center two-race-second-player h-16-5 w-2-4" @progress = {{this.progress2}} @y = "18%" />
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="{{gradient1}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#09AB94"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#09AB94" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="grad2" x1="0%" y1="{{gradient2}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#E3096D"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#E3096D" stop-opacity="0"/>
+    </linearGradient>
+
+  </defs>
+  <Trail @class="origin-center trail" stroke="url(#grad2)" @position={{47}} @progress={{this.progress2}}></Trail>
+  <Trail @class="origin-center trail" stroke="url(#grad1)" @position={{82}} @progress={{this.progress1}}></Trail>
+
+{{/if}}
+
+{{#if (eq this.players 3)}}
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="{{gradient1}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#B7D55C"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#B7D55C" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="{{gradient2}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#E49750"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#E49750" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="{{gradient3}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#DC4840"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#DC4840" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <Trail @class="origin-center stroke-w-3 trail" stroke="url(#grad1)" @position={{90}} @progress={{this.progress1}}></Trail>
+  <Trail @class="origin-center stroke-w-3 trail" stroke="url(#grad2)" @position={{73}} @progress={{this.progress2}}></Trail>
+  <Trail @class="origin-center stroke-w-3 trail" stroke="url(#grad3)" @position={{56}} @progress={{this.progress3}}></Trail>
+  <Player @class=" opacity-0-9 origin-center four-race-first-player h-8-2 w-2-4" @progress = {{this.progress1}} @y = "0.8%" />
+  <Player @class="opacity-0-9 origin-center four-race-second-player h-8-2 w-2-4" @progress = {{this.progress2}} @y = "9.4%" />
+  <Player @class="opacity-0-9 origin-center four-race-third-player h-8-2 w-2-4" @progress = {{this.progress3}} @y = "18%" />
+{{/if}}
+
+{{#if (eq this.players 4)}}
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="{{gradient1}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#B7D55C"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#B7D55C" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="{{gradient2}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#E49750"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#E49750" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="{{gradient3}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#DC4840"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#DC4840" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="{{gradient4}}%"  gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#BF338A"  stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#BF338A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <Trail @class="origin-center stroke-w-3 trail" stroke="url(#grad1)" @position={{90}} @progress={{this.progress1}}></Trail>
+  <Trail @class="origin-center stroke-w-3 trail" stroke="url(#grad2)" @position={{73}} @progress={{this.progress2}}></Trail>
+  <Trail @class="origin-center stroke-w-3 trail" stroke="url(#grad3)" @position={{56}} @progress={{this.progress3}}></Trail>
+  <Trail @class="origin-center stroke-w-3 trail" stroke="url(#grad4)" @position={{39}} @progress={{this.progress4}}></Trail>
+  <Player @class="opacity-0-9 origin-center four-race-first-player h-8-2 w-2-4" @progress = {{this.progress1}} @y = "0.8%" />
+  <Player @class="opacity-0-9 origin-center four-race-second-player h-8-2 w-2-4" @progress = {{this.progress2}} @y = "9.4%" />
+  <Player @class="opacity-0-9 origin-center four-race-third-player h-8-2 w-2-4" @progress = {{this.progress3}} @y = "18%" />
+  <Player @class="opacity-0-9 origin-center four-race-fourth-player h-8-2 w-2-4" @progress = {{this.progress4}} @y = "26.6%" />
+{{/if}}

@@ -1,0 +1,80 @@
+<div class="container-fluid vh-100 ">
+  <div class="min-vh-75 opacity-1">
+    <div class="row bison-bold pt-5 w-100">
+      <label class="pt-3 reborn-sprints-07 pb-0 text-white font-italic">
+          Welcome to your vault!
+      </label>
+    </div>
+    {{!-- <PopUp @message = {{this.popUpMessage}} @showClose = {{true}} @registrationPopUp = {{true}}/> --}}
+
+
+    <div class="row p-box-reborn-sprints pt-5">
+      <div class="col-3">
+
+      </div>
+      <div class="col-6 text-white bg-white-2">
+        <div class="py-input-text-first teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isUsernameValid "border border-white" "border border-danger"}}" @value={{this.username}} @placeholder="USERNAME"/>
+        </div>
+        <div class="py-input-text teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isEmailValid "border border-white" "border border-danger"}}" @value={{this.email}} @placeholder="EMAIL"/>
+        </div>
+        <div class="py-input-text teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isPasswordValid "border border-white" "border border-danger"}}" @value={{this.password}} @placeholder="PASSWORD"/>
+        </div>
+        <div class="py-input-text teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isConfirmedPasswordValid "border border-white" "border border-danger"}}" @value={{this.phone}} @placeholder="CONFIRM PASSWORD"/>
+        </div>
+      <div>
+          <label class="teko text-white registration-label padding-label">Already have an account?</label>
+        </div>
+        <div>
+        <label class="teko text-white registration-label padding-label">LOGIN</label>
+        </div>
+      </div>
+
+      {{!-- <div class="col teko">
+        <div class="py-input-text-first teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isEmailValid "border border-white" "border border-danger"}}" @value={{this.email}} @placeholder="EMAIL*"/>
+        </div>
+        <div class="py-input-text teko">
+          <Input @type="text" @class="input-field registration-input-field w-100 {{if isAgeValid "border border-white" "border border-danger"}}" @value={{this.age}} @placeholder="AGE"/>
+        </div>
+        <div class="py-input-text teko">
+          <div class="dropdown input-field w-100 drop-btn pl-0 pt-0 border" id="participant-gender">
+            <Input  @type="text" @class="registration-input-field w-100 drop-btn" @id="participant-gender" @value={{this.gender}} @placeholder="GENDER" @readonly="readonly"/>
+            <div class="dropdown-content w-100 position-absolute">
+              {{#each this.genders as |gender|}}
+                <a class="padding-left-2" href="#" {{action "setGender" gender}}>{{gender}}</a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div> --}}
+    </div>
+  </div>
+  {{#if successMessageShowed}}
+    <div role="button" {{action "toggleSuccessMessageShowed"}} ontouchstart={{action "toggleSuccessMessageShowed"}} onclick={{action "toggleSuccessMessageShowed"}}>
+      {{!-- <PopUp @message = {{this.popUpMessage}} @showClose = {{true}} @registrationPopUp = {{true}}/> --}}
+    </div>
+  {{/if}}
+
+  <div class="row p-box-reborn-sprints bg-blue text-white pt-0 min-vh-25 pb-0">
+    <div class="col teko h-100 mt-5">
+      <div role="group" class="d-flex btn-group-registration" >
+        {{!-- <label class="teko text-white registration-label">{{error}}</label> --}}
+        {{!-- {{#if (eq this.event.name undefined)}}
+          <label class="teko text-white registration-label">Registration is not available</label>
+        {{/if}} --}}
+        <div role="button" class= "d-flex cursor-pointer" {{action "createParticipant"}} >
+          {{!-- <RaceFlag @race={{false}} class="w-check {{if (eq this.event.name undefined) "opacity-btn disabled-btn "  ""}}" @xTimes={{5}} @yTimes={{5}}/> --}}
+          <div class="bison-bold border border-white register-btn font-italic border border-white text-white bison-bold register-btn font-italic "  >REGISTER</div>
+                    {{!-- <div class="bison-bold border border-white register-btn font-italic   {{if (eq this.event.name undefined) "opacity-btn disabled-btn "  " border border-white text-white bison-bold register-btn font-italic "}}"  >REGISTER</div> --}}
+
+          {{!-- <PopUp @message = {{this.popUpMessage}} @showClose = {{true}} @registrationPopUp = {{true}}/> --}}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

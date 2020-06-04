@@ -1,0 +1,69 @@
+.timer-container {
+  font-family: 'Bison-Bold', sans-serif;
+  font-style: italic;
+  letter-spacing: 0.2vw;
+  transform: scale(1.3, 1.1);
+  font-size: 4vw;
+  color: white;
+  
+}
+
+.input-container {
+  
+  font-family: 'Roboto-Light', sans-serif;
+  font-size: 2vw;
+  font-weight: lighter;
+  color: white;
+  height: 15vh;
+  width: 20vw;
+  margin-left: 13%;
+}
+
+.custom-race-dropdown-container{
+  height: 7vh;
+  width: 6vw;
+}
+
+.custom-race-font{
+  font-family: 'Roboto-Light', sans-serif;
+  font-size: 1.5vw;
+  font-weight: lighter;
+}
+
+.custom-race-input{
+  cursor: pointer;
+  outline: none;
+  height: 4vh;
+  width: 4.5vw;
+  border: 0.1vw solid transparent;
+  user-select: none;
+}
+
+.custom-race-input[type=number]::-webkit-inner-spin-button,
+.custom-race-input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-race-input[type=number] {
+  -moz-appearance:textfield;
+}
+
+.input-focus{
+  background-color: grey !important;
+}
+
+.race-types{
+  width: 4vw;
+}
+
+.race-types-list{
+  list-style-type: none;
+
+}
+
+.race-type-choice{
+  height: 4vh;
+  width: 2vw;
+  vertical-align: middle;
+}

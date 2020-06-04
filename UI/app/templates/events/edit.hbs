@@ -1,0 +1,118 @@
+<div class="container-fluid vh-100">
+  <HeaderBar class="min-vh-8-9" @editButton={{false}} />
+  <div class="row min-vh-41-6">
+    <div class="col-md-5 col-sm-12">
+      <div class="row mt-11 ml-6 teko">
+        <Input @type="text" @class="input-field w-100"
+          @id="account" @value={{event.account}} @placeholder="ACCOUNT NAME" />
+      </div>
+      <div class="row mt-11 ml-6 teko">
+        <Input @type="text" @class="input-field w-100 " @id="username" @value={{event.username}}
+           @placeholder="ACCOUNT USERNAME" />
+      </div>
+      
+    </div>
+    <div class="col-md-5 offset-2 col-sm-12">
+      <div class="row mt-11 mr-6 teko">
+        <Input @type="text" @class="input-field w-100 " @id="password"
+           @placeholder="***********" />
+      </div>
+      <div class="row mr-6 mt-11 teko">
+        <div class="col-6 pl-0">
+          <p class="pb-1 float-left d-inline-block event-label text-white">RANDOM</p>
+          <button class="w-box box-w-29 border d-inline-block p-0" {{action "setKey" "KPH"}} {{action "setKey" "MPH"}}>
+            <p class="event-check cross cross-create-event {{if KPH "" "d-none"}}">
+            </p>
+          </button>
+        </div>
+        <div class="col-6 pl-0">
+          <p class="d-inline-block float-left event-label text-white">PERSONALIZED</p>
+          <button class="w-box box-w-29 border d-inline-block p-0 mph" {{action "setKey" "MPH"}}
+            {{action "setKey" "KPH"}}>
+            <p class="event-check cross cross-create-event {{if MPH "" "d-none"}}">
+            </p>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="row bg-blue min-vh-49-5 text-white">
+    <div class="col-md-5 col-sm-12">
+      <div class="row ml-6 mt-13">
+        <div class="col-md-1">
+          {{!-- <div class="z-index-2 margin-left-dropdown margin-top-dropdown w-1" >
+            <div class="drop-btn col row dropdown pl-0 pr-0 margin-left-0-1">
+              <div role="button" onMouseOver={{action "hide"}} onMouseOut={{action "unhide"}}><DropdownSvg /></div>
+              <div class="dropdown-content drop-btn drop-down-nr-of-bikes-width margin-left-dropdown-content text-center">
+                <a class={{if (eq nrOfBikes 1) "bcol-dropdown" ""}} href="#" onMouseOver={{action "hide"}} onMouseOut={{action "unhide"}} {{action "setNrOfBikes" 1}}>1</a>
+                <a class={{if (eq nrOfBikes 2) "bcol-dropdown" ""}} href="#" onMouseOver={{action "hide"}} onMouseOut={{action "unhide"}} {{action "setNrOfBikes" 2}}>2</a>
+                <a class={{if (eq nrOfBikes 3) "bcol-dropdown" ""}} href="#" onMouseOver={{action "hide"}} onMouseOut={{action "unhide"}} {{action "setNrOfBikes" 3}}>3</a>
+                <a class={{if (eq nrOfBikes 4) "bcol-dropdown" ""}} href="#" onMouseOver={{action "hide"}} onMouseOut={{action "unhide"}} {{action "setNrOfBikes" 4}}>4</a>
+              </div>
+            </div>
+          </div> --}}
+          {{!-- {{#if nrOfBikes}}
+            {{#if hideBikes}}
+              <span class="span-2 event-label teko position-relative" hidden>{{nrOfBikes}}</span>
+            {{else}}
+              <span class="span-2 event-label teko position-relative">{{nrOfBikes}}</span>
+            {{/if}}
+          {{/if}} --}}
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-6 offset-md-1 teko p-0">
+              {{!-- <p class="d-inline-block event-label float-left mr-3">DISTANCE</p>
+              <button class="w-box box-w-29 border d-inline-block p-0 ml-2" {{action "setKey" "distance"}}
+                {{action "setKey" "time"}} {{action "setPlaceholder" "m"}}>
+                <p class="event-check cross cross-create-event  {{if distance "" "d-none"}}"></p>
+              </button> --}}
+            </div>
+            <div class="col-md-4 offset-md-1 teko p-0">
+              {{!-- <p class="d-inline-block event-label">TIME</p>
+              <button class="w-box box-w-29 border d-inline-block p-0 float-right" {{action "setKey" "time"}}
+                {{action "setKey" "distance"}} {{action "setPlaceholder" "s"}}>
+                <p class="event-check cross cross-create-event  {{if time "" "d-none"}}"></p>
+              </button> --}}
+            </div>
+          </div>
+          <div class="row float-right">
+            {{!-- <Input @ id="rv" @type="text"
+              @class=" input-field distance-time-input teko py-7 pyb-03 {{if isValueValid "border border-white" "border border-danger"}}"
+              @value={{this.raceValue}} @placeholder={{type}} /> --}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-12 offset-md-2 ">
+      <div class="row margin-top-create-event">
+        {{!-- <label class=" event-label teko ">HARDWARE CONNECTION</label> --}}
+      </div>
+      <div class="row mt-467">
+        {{!-- <button class="text-white event-button roboto chk-btn" {{action "checkHard"}}>
+          check
+        </button>
+        <a class="event-label teko px-3">
+          <span>{{this.hardwareConnStatus}}</span>
+        </a> --}}
+      </div>
+      <div class="row btn-group-race float-right mr-5 mt-5">
+        {{!-- {{#if error}}
+          <label class="teko event-label error mr-3">
+            Invalid or missing input(s)
+          </label>
+        {{/if}} --}}
+        <div role="button" class= "d-flex cursor-pointer" {{action "editPassword" event.id account username password}}>
+          {{!-- <RaceFlag @race={{false}} class="w-check"  @xTimes={{5}} @yTimes={{5}}/> --}}
+          <div class="event-button event-btn-race text-white" >EDIT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{#if eventOpenError}}
+    <div role="button">
+      <PopUp @message = {{this.errorMessageOpenEvent}} @eventsButton = {{true}}/>
+    </div>
+  {{/if}}
+</div>

@@ -1,0 +1,29 @@
+{{#if inserted}}
+  {{#each xAxis as |x|}}
+
+    {{#each yAxis as |y|}}
+
+      {{#if (eq (mod x 2) 0)}}
+
+        {{#if race}}
+          <rect width={{size}} height={{size}} x={{mult x size}} y={{mult y size}} />
+        {{/if}}
+
+        {{#if (eq (mod y 2) 0)}}
+          <rect width={{size}} height={{size}} x={{mult x size}} y={{mult y size}} class="fill-white" />
+        {{/if}}
+
+      {{else}}
+
+        {{#if race}}
+          <rect width={{size}} height={{size}} x={{mult x size}} y={{mult y size}} />
+        {{/if}}
+
+        {{#if (eq (mod y 2) 1)}}
+          <rect width={{size}} height={{size}} x={{mult x size}} y={{mult y size}} class="fill-white" />
+        {{/if}}
+
+      {{/if}}
+    {{/each}}
+  {{/each}}
+{{/if}}

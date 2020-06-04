@@ -1,0 +1,19 @@
+<div class = "grid-container container">
+  {{#each this.riders as |riderInfo|}}
+    <PlayerButton
+      @nrOfBikes = {{nrOfBikes}} 
+      @isWinner = {{eq this.winnerID riderInfo.i}}
+      @players = {{this.players}} 
+      @showCard={{riderInfo.showCard}}
+      @raceType = {{raceType}}
+      @raceFinished={{raceFinished}}
+      @onSendPlayerToGrid = {{action "setPlayerInGrid"}} 
+      @rider = {{riderInfo.rider}}
+      @selectedPlayers={{this.ridersList}}
+      @riderInfo = {{riderInfo}}
+      @showWinner={{showWinner}}
+      @showDropdowns={{showDropdowns}}
+      @onClickDropdown={{action "clickedDropdown"}}
+      @onKeepItOpen={{action "keepItOpen"}} />
+  {{/each}}
+</div>

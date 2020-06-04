@@ -1,0 +1,17 @@
+version: '3'
+services:
+  server:
+    build:
+      context: https://gitlab+deploy-token-105766:xrTsNGwifJrJUoiVHtUp@gitlab.com/rebornsprints/server.git
+    ports:
+      - "5000:5000"
+    restart: always
+  ui:
+    build:
+      context: https://gitlab+deploy-token-105762:U-Drn5cE_b9mxDgQheaM@gitlab.com/rebornsprints/ui.git
+    ports:
+      - "4200:4200"
+    env_file: .env-ui
+    depends_on:
+      - server
+    restart: always

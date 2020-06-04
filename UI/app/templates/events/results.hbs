@@ -1,0 +1,26 @@
+<div class="h-100 w-100">  
+  <div class="row mr-0 title-res">
+    <div>
+      <label class="text-white font-italic open-event-text bison-bold res-title">Name:{{event.name}} &nbsp;</label>
+    </div>
+    <div class="mt-132">
+      <label class="text-white fontS roboto">{{date}}</label>
+      <br>
+      <label class="text-white fontS roboto">
+        {{#if raceValueFlag}}
+          {{#if (eq model.event.raceType "m")}}
+            Distance: {{event.raceValue}} m
+          {{/if}}
+          {{#if (eq model.event.raceType "s")}}
+            Time: {{event.raceValue}} s
+          {{/if}}
+        {{/if}}
+      </label>
+    </div>
+  </div>
+
+  <HeaderBar class="mt21 ml-07" editButton = "false" />
+
+  <ResultsTable @results={{this.model.results}} @event={{this.model.event}} />
+
+</div>

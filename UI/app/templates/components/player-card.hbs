@@ -1,0 +1,68 @@
+
+<div class = "{{if isWinner "player-card-container-winner" "player-card-container"}} bg-transparent bikes-{{nrOfBikes}}" id="card-container-{{this.riderInfo.i}}"> 
+  <div class = "row justify-content-center">
+    <div class = "player-card-header card-header-color-{{this.riderInfo.i}} bikes-{{nrOfBikes}}">
+      <p class = "card-value bikes-{{nrOfBikes}} teko font-weight-bold header-style text-left float-left text-white">
+        {{#if this.raceFinished}}
+          {{this.riderInfo.maxSpeed}} 
+        {{else}}
+          {{this.riderInfo.speed}}
+        {{/if}}
+
+        <span class="card-unit bikes-{{nrOfBikes}} roboto-black header-style font-weight-bold text-white ml-1">KPH</span>
+      </p>
+
+      <span class = "card-info-unit bikes-{{nrOfBikes}} roboto-black header-style text-uppercase text-right font-weight-bold text-white float-right">
+        {{#if this.raceFinished}}
+          max <br> speed
+        {{else}}
+          <br>speed
+        {{/if}}
+      </span>
+    </div>
+  </div>
+
+  <div class = "row justify-content-center">
+    <div class = "card-header-border-{{this.riderInfo.i}} status-cell  bikes-{{nrOfBikes}} bg-transparent">
+      <p class = "card-value bikes-{{nrOfBikes}} teko text-left text-white float-left">
+        {{#if (eq raceType "s")}}
+          {{this.riderInfo.playerDistance}}
+          <span class = "card-unit bikes-{{nrOfBikes}} text-left roboto-light text-white">M</span>
+        {{else}}
+          {{this.riderInfo.playerMins}}:{{this.riderInfo.playerSecs}}:{{this.riderInfo.playerMillis}}
+          
+        {{/if}}      
+      </p>
+
+      <span class="card-info-unit bikes-{{nrOfBikes}} roboto-light text-right text-white float-right">
+        {{#if (eq raceType "s")}}
+          DISTANCE
+        {{else}}
+          TIME
+        {{/if}}
+      </span>
+    </div>
+  </div>
+  <div class = "row justify-content-center roboto-light text-uppercase text-right text-white">
+    <div class = "status-cell bikes-{{nrOfBikes}} card-header-border-{{this.riderInfo.i}} bg-transparent">
+      <p class = "card-value bikes-{{nrOfBikes}} teko text-left text-white float-left">
+        {{this.riderInfo.avgSpeed}}
+
+        <span class = "card-unit bikes-{{nrOfBikes}} text-left roboto-light text-white">KPH</span>
+      </p>
+
+      <span class = "card-info-unit bikes-{{nrOfBikes}} roboto-light text-right text-white float-right">AVG SPEED</span>
+    </div>
+  </div>
+  <div class = "row justify-content-center">
+    <div class = "status-cell bikes-{{nrOfBikes}} card-header-border-{{this.riderInfo.i}} bg-transparent">
+      <p class = "card-value bikes-{{nrOfBikes}} teko text-left text-white float-left">
+        {{this.powerAvg}}
+
+        <span class="card-unit bikes-{{nrOfBikes}} roboto-light text-white">W</span>
+      </p>
+
+      <span class="card-info-unit bikes-{{nrOfBikes}} roboto-light text-right text-white float-right">POWER AVG</span>
+    </div>
+  </div>
+</div> 

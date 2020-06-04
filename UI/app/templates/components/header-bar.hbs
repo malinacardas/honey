@@ -1,0 +1,9 @@
+<div class="row header-bar mr-0 {{if raceOnGoing "cursor-default" "cursor-pointer"}}">
+  {{#if editButton}}
+    <EditEventsButton @eventId = {{eventId}} @raceOnGoing = {{raceOnGoing}}/>
+    <ViewEventsButton class="event-button-header-bar z-index-1" @raceOnGoing = {{raceOnGoing}}/>
+  {{else}}
+    <ViewEventsButton class="ml-2 event-button-header-bar-margin-top" @raceOnGoing = {{raceOnGoing}}/>
+  {{/if}}
+</div>
+{{yield}}

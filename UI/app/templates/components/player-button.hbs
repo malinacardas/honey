@@ -1,0 +1,30 @@
+<div id={{if isWinner (concat "container-" nrOfBikes) ""}} class = "player-button-container container-{{nrOfBikes}} container-player-{{riderInfo.i}} z-index-3 {{if isWinner (concat "winner-card player-card-winner-" riderInfo.i) ""}} {{if raceFinished "opacity-player-card" ""}}">
+  {{#if riderNameS}}
+    <div class = "z-index-2 players-{{nrOfBikes}} button-{{riderInfo.i}} {{if isWinner "player-card-winner player-button player-button-winner" "player-button"}}" id="set-rider-button" >{{riderNameS}}</div>
+    
+  {{else}}
+    <div class = "player-button z-index-2 players-{{nrOfBikes}} button-{{riderInfo.i}}" id="blank-rider-button">Rider {{riderInfo.i}}</div>
+  {{/if}}
+  <PlayerDropdown 
+    @isWinner={{this.isWinner}} 
+    @playersA = {{pAvailable}} 
+    @playersNA={{pNAvailable}} 
+    @rid = {{riderInfo.i}}
+    @areaExpanded={{dropdownShownP}} 
+    @onConfirmPlayer = {{action "setPlayerInButton"}} 
+    @onClickDropdown={{action "clickedDropdown"}}
+    @onKeepItOpen={{action "keepItOpen"}}
+  />
+  
+ 
+  {{#if (and this.showCard (not dropdownShownP))}}
+    <PlayerCard 
+      @nrOfBikes={{this.nrOfBikes}} 
+      @isWinner={{this.isWinner}}
+      @riderInfo={{this.riderInfo}} 
+      @powerAvg={{0}} 
+      @raceFinished={{raceFinished}}
+      @raceType = {{raceType}}
+    />
+  {{/if}}
+</div>
